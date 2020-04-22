@@ -1,17 +1,16 @@
-package day3;
+package day4;
 
 import java.util.Scanner;
 
-public class Practice3_2 {
+public class Practice4_2 {
 
 	public static void main(String[] args) {
-		// 버블정렬
+		// 삽입정렬
 		Scanner getnum = new Scanner(System.in);
 		System.out.printf("정수를 입력하십시오. : ");
 		int cont=0, leng = getnum.nextInt();
 		int sort[] = new int[leng];
 		boolean comp;
-		
 		while(cont<sort.length) {
 			int in=0;
 			sort[cont]=(int)(Math.random()*leng+1);
@@ -26,6 +25,7 @@ public class Practice3_2 {
 				cont++;
 			}
 		}
+		
 		System.out.println("원본");
 		for(int prt : sort) {
 			System.out.printf("%4d", prt);
@@ -33,15 +33,19 @@ public class Practice3_2 {
 		System.out.println();
 		System.out.println("배열");
 		
-		for(int i=0; i<sort.length-1; i++) {
-			comp=false;
-			for(int j=0; j<sort.length-1-i; j++) {
-				if(sort[j]>sort[j+1]) {
-					int tmp = sort[j];
-					sort[j] = sort[j+1];
-					sort[j+1] = tmp;
+		for(int i=1; i<sort.length; i++) {
+			comp = false;
+			cont = 0;
+			int key = sort[i];
+			for(int j=i; 0<j; j--) {
+				if(sort[j-1]>key) {
+					sort[j]=sort[j-1];
+					cont++;
+				}else {
+					break;
 				}
 			}
+			sort[i-cont]=key;
 			for(int j=0; j<sort.length; j++) {
 				System.out.printf("%4d", sort[j]);
 				if(0<j) {
@@ -57,6 +61,7 @@ public class Practice3_2 {
 		}
 		getnum.close();
 		System.exit(0);
+		
 	}
 
 }
