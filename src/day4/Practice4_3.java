@@ -38,8 +38,8 @@ public class Practice4_3 {
 			mgsq[x][y]=cont;
 		}
 
-		for(int i=0; i<num; i++) {
-			for(int j=0; j<num; j++) {
+		for(int i=0; i<mgsq.length; i++) {
+			for(int j=0; j<mgsq[0].length; j++) {
 				System.out.printf("%4d", mgsq[i][j]);
 			}
 			System.out.println();
